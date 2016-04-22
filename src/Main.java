@@ -3,6 +3,9 @@ import AbstractFactory.Alfajor;
 import AbstractFactory.Balcarce;
 import AbstractFactory.Havanna;
 import AbstractFactory.Postre;
+import Builder.Auto;
+import Builder.Director;
+import Builder.FiatBuilder;
 import FactoryMethod.CreadorAuto;
 import FactoryMethod.CreadorCamion;
 import FactoryMethod.CreadorVehiculos;
@@ -35,6 +38,13 @@ public class Main {
 		*/
 		
 		//Builder
+		/*
+		Director director = new Director(new FiatBuilder());
+		Auto auto = director.construct();
+		System.out.println(auto.getMarca());
+		System.out.println(auto.getModelo());
+		*/
+		
 		
 		
 	}
