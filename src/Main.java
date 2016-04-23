@@ -10,6 +10,10 @@ import FactoryMethod.CreadorAuto;
 import FactoryMethod.CreadorCamion;
 import FactoryMethod.CreadorVehiculos;
 import FactoryMethod.Vehiculo;
+import Prototype.LCD;
+import Prototype.Plasma;
+import Prototype.PrototypeFactory;
+import Prototype.TV;
 import Singleton.Singleton;
 import Singleton.StaticClass;
 
@@ -45,7 +49,16 @@ public class Main {
 		System.out.println(auto.getModelo());
 		*/
 		
+		//Prototype
+		PrototypeFactory.addPrototype("lcd", new LCD("LCD"));
+		PrototypeFactory.addPrototype("plasma",  new Plasma("Plasma"));
 		
+		TV plasma = PrototypeFactory.makeObject("plasma");
+		System.out.println(plasma.getName());
+		
+		PrototypeFactory.removePrototype("plasma");
+		TV newPlasma = PrototypeFactory.makeObject("plasma");
+		System.out.println(newPlasma.getName());
 		
 	}
 
