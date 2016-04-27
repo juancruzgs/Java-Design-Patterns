@@ -6,6 +6,10 @@ import AbstractFactory.Postre;
 import Builder.Auto;
 import Builder.Director;
 import Builder.FiatBuilder;
+import Composite.Column;
+import Composite.Component;
+import Composite.Primitive;
+import Composite.Row;
 import FactoryMethod.CreadorAuto;
 import FactoryMethod.CreadorCamion;
 import FactoryMethod.CreadorVehiculos;
@@ -50,6 +54,7 @@ public class Main {
 		*/
 		
 		//Prototype
+		/*
 		PrototypeFactory.addPrototype("lcd", new LCD("LCD"));
 		PrototypeFactory.addPrototype("plasma",  new Plasma("Plasma"));
 		
@@ -59,7 +64,36 @@ public class Main {
 		PrototypeFactory.removePrototype("plasma");
 		TV newPlasma = PrototypeFactory.makeObject("plasma");
 		System.out.println(newPlasma.getName());
+		*/
 		
+		//Composite
+		Component first = new Row(1);
+		Component second = new Column(2);
+		Component third = new Column(3);
+		Component fourth = new Row(4);
+		Component fifth = new Row(5);
+		
+		first.add(second);
+		first.add(third);
+		third.add(fourth);
+	    third.add( fifth  );                   
+	    first.add( new Primitive(6));   
+	    second.add(new Primitive(7));  
+	    third.add(new Primitive(8));    
+	    fourth.add(new Primitive(9));      
+	    fifth.add(new Primitive(10));        
+	    
+	    System.out.println("traverse");
+	    System.out.println("---------------");
+	    first.traverse();
+	    System.out.println();
+	    
+	    System.out.println("child");
+	    System.out.println("---------------");	    
+	    Component child = first.getChild(0);
+	    if (child != null) {
+	    	child.traverse();
+	    }
 	}
 
 }
