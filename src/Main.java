@@ -10,6 +10,7 @@ import Composite.Column;
 import Composite.Component;
 import Composite.Primitive;
 import Composite.Row;
+import Facade.OrderFacade;
 import FactoryMethod.CreadorAuto;
 import FactoryMethod.CreadorCamion;
 import FactoryMethod.CreadorVehiculos;
@@ -67,6 +68,7 @@ public class Main {
 		*/
 		
 		//Composite
+		/*
 		Component first = new Row(1);
 		Component second = new Column(2);
 		Component third = new Column(3);
@@ -94,6 +96,11 @@ public class Main {
 	    if (child != null) {
 	    	child.traverse();
 	    }
+	    */
+		
+		//Facade
+		OrderFacade facade = new OrderFacade();
+		facade.placeOrder("O111");
 	}
 
 }
