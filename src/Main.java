@@ -3,6 +3,9 @@ import AbstractFactory.Alfajor;
 import AbstractFactory.Balcarce;
 import AbstractFactory.Havanna;
 import AbstractFactory.Postre;
+import Adapter.LineAdapter;
+import Adapter.RectangleAdapter;
+import Adapter.ShapeAdapter;
 import Builder.Auto;
 import Builder.Director;
 import Builder.FiatBuilder;
@@ -107,9 +110,18 @@ public class Main {
 		*/
 		
 		//Proxy
+		/*
 		Image proxy = new ProxyImage("image");
-		//proxy.display();
-		//proxy.display();
+		proxy.display();
+		proxy.display();
+		*/
+		
+		//Adapter
+		ShapeAdapter adapter = new RectangleAdapter();
+		adapter.draw(10, 20, 30, 60);
+		
+		adapter = new LineAdapter();
+		adapter.draw(10, 20, 30, 60);
 	}
 
 }
