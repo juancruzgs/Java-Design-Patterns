@@ -15,6 +15,8 @@ import FactoryMethod.CreadorAuto;
 import FactoryMethod.CreadorCamion;
 import FactoryMethod.CreadorVehiculos;
 import FactoryMethod.Vehiculo;
+import Image.Image;
+import Image.ProxyImage;
 import Prototype.LCD;
 import Prototype.Plasma;
 import Prototype.PrototypeFactory;
@@ -99,8 +101,15 @@ public class Main {
 	    */
 		
 		//Facade
+		/*
 		OrderFacade facade = new OrderFacade();
 		facade.placeOrder("O111");
+		*/
+		
+		//Proxy
+		Image proxy = new ProxyImage("image");
+		//proxy.display();
+		//proxy.display();
 	}
 
 }
