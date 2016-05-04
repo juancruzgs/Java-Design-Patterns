@@ -1,3 +1,5 @@
+
+
 import AbstractFactory.AbstractFactory;
 import AbstractFactory.Alfajor;
 import AbstractFactory.Balcarce;
@@ -24,6 +26,10 @@ import FactoryMethod.CreadorVehiculos;
 import FactoryMethod.Vehiculo;
 import Image.Image;
 import Image.ProxyImage;
+import Observer.Gates;
+import Observer.Lights;
+import Observer.Observer;
+import Observer.SensorSystem;
 import Prototype.LCD;
 import Prototype.Plasma;
 import Prototype.PrototypeFactory;
@@ -130,11 +136,23 @@ public class Main {
 		*/
 		
 		//Bridge
+		/*
 		ShapeAbstraction abstraction = new Circle(new RedCircle(), 1, 2, 3);
 		abstraction.draw();
 		
 		abstraction = new Circle(new GreenCircle(), 4, 5, 6);
 		abstraction.draw();
+		*/
+		
+		//Observer
+		SensorSystem sensorSystem = new SensorSystem();
+		Observer lights = new Lights(sensorSystem);
+		Observer gates = new Gates(sensorSystem);
+		
+		sensorSystem.setState(1);
+		
+		sensorSystem.detach(gates);
+		sensorSystem.setState(2);
 		
 	}
 
