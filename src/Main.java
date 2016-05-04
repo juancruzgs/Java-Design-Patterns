@@ -6,6 +6,10 @@ import AbstractFactory.Postre;
 import Adapter.LineAdapter;
 import Adapter.RectangleAdapter;
 import Adapter.ShapeAdapter;
+import Bridge.Circle;
+import Bridge.GreenCircle;
+import Bridge.RedCircle;
+import Bridge.ShapeAbstraction;
 import Builder.Auto;
 import Builder.Director;
 import Builder.FiatBuilder;
@@ -117,11 +121,21 @@ public class Main {
 		*/
 		
 		//Adapter
+		/*
 		ShapeAdapter adapter = new RectangleAdapter();
 		adapter.draw(10, 20, 30, 60);
 		
 		adapter = new LineAdapter();
 		adapter.draw(10, 20, 30, 60);
+		*/
+		
+		//Bridge
+		ShapeAbstraction abstraction = new Circle(new RedCircle(), 1, 2, 3);
+		abstraction.draw();
+		
+		abstraction = new Circle(new GreenCircle(), 4, 5, 6);
+		abstraction.draw();
+		
 	}
 
 }
