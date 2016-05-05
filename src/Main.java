@@ -15,6 +15,11 @@ import Bridge.ShapeAbstraction;
 import Builder.Auto;
 import Builder.Director;
 import Builder.FiatBuilder;
+import Command.Broker;
+import Command.BuyStock;
+import Command.Command;
+import Command.SellStock;
+import Command.Stock;
 import Composite.Column;
 import Composite.Component;
 import Composite.Primitive;
@@ -145,6 +150,7 @@ public class Main {
 		*/
 		
 		//Observer
+		/*
 		SensorSystem sensorSystem = new SensorSystem();
 		Observer lights = new Lights(sensorSystem);
 		Observer gates = new Gates(sensorSystem);
@@ -153,7 +159,19 @@ public class Main {
 		
 		sensorSystem.detach(gates);
 		sensorSystem.setState(2);
+		*/
 		
+		//Command
+		Stock receiver = new Stock();
+		
+		Command buyCommand = new BuyStock(receiver);
+		Command sellCommand = new SellStock(receiver);
+		
+		Broker invoker = new Broker();
+		invoker.addCommand(buyCommand);
+		invoker.addCommand(sellCommand);
+		
+		invoker.executeCommands();
 	}
 
 }
