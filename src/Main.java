@@ -41,6 +41,7 @@ import Prototype.PrototypeFactory;
 import Prototype.TV;
 import Singleton.Singleton;
 import Singleton.StaticClass;
+import State.Button;
 
 public class Main {
 
@@ -162,6 +163,7 @@ public class Main {
 		*/
 		
 		//Command
+		/*
 		Stock receiver = new Stock();
 		
 		Command buyCommand = new BuyStock(receiver);
@@ -172,6 +174,13 @@ public class Main {
 		invoker.addCommand(sellCommand);
 		
 		invoker.executeCommands();
+		*/
+		
+		//State
+		Button context = new Button();
+		context.press();
+		context.press();
+		context.press();
 	}
 
 }
