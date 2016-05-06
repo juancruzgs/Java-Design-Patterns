@@ -42,6 +42,9 @@ import Prototype.TV;
 import Singleton.Singleton;
 import Singleton.StaticClass;
 import State.Button;
+import Strategy.Context;
+import Strategy.OperationAdd;
+import Strategy.OperationMultiply;
 
 public class Main {
 
@@ -177,10 +180,21 @@ public class Main {
 		*/
 		
 		//State
+		/*
 		Button context = new Button();
 		context.press();
 		context.press();
 		context.press();
+		*/
+		
+		//Strategy
+		Context context = new Context(new OperationAdd());
+		context.execute(1, 2);
+		
+		context = new Context(new OperationMultiply());
+		context.execute(1, 2);
+		
+		
 	}
 
 }
