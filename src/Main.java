@@ -49,6 +49,11 @@ import State.Button;
 import Strategy.Context;
 import Strategy.OperationAdd;
 import Strategy.OperationMultiply;
+import Visitor.DownVisitor;
+import Visitor.That;
+import Visitor.Those;
+import Visitor.UpVisitor;
+import Visitor.Visitor;
 
 public class Main {
 
@@ -201,6 +206,7 @@ public class Main {
 		*/
 		
 		//Chain of Responsibility
+		/*
 		Handler head = new ErrorLogger();
 		Handler file = new FileLogger();
 		Handler console = new ConsoleLogger();
@@ -211,6 +217,19 @@ public class Main {
 		head.logMessage(Handler.INFO, "information");
 		head.logMessage(Handler.DEBUG, "debug");
 		head.logMessage(Handler.ERROR, "error");
+		*/
+		
+		//Visitor
+		Visitor upVisitor = new UpVisitor();
+		Visitor downVisitor = new DownVisitor();
+		
+		Those those = new Those();
+		those.accept(upVisitor);
+		those.accept(downVisitor);
+
+		That that = new That();
+		that.accept(upVisitor);
+		that.accept(downVisitor);
 	}
 
 }
