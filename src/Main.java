@@ -15,6 +15,10 @@ import Bridge.ShapeAbstraction;
 import Builder.Auto;
 import Builder.Director;
 import Builder.FiatBuilder;
+import ChainOfResponsibility.ConsoleLogger;
+import ChainOfResponsibility.ErrorLogger;
+import ChainOfResponsibility.FileLogger;
+import ChainOfResponsibility.Handler;
 import Command.Broker;
 import Command.BuyStock;
 import Command.Command;
@@ -188,13 +192,25 @@ public class Main {
 		*/
 		
 		//Strategy
+		/*
 		Context context = new Context(new OperationAdd());
 		context.execute(1, 2);
 		
 		context = new Context(new OperationMultiply());
 		context.execute(1, 2);
+		*/
 		
+		//Chain of Responsibility
+		Handler head = new ErrorLogger();
+		Handler file = new FileLogger();
+		Handler console = new ConsoleLogger();
 		
+		head.setNextHandler(file);
+		file.setNextHandler(console);
+		
+		head.logMessage(Handler.INFO, "information");
+		head.logMessage(Handler.DEBUG, "debug");
+		head.logMessage(Handler.ERROR, "error");
 	}
 
 }
