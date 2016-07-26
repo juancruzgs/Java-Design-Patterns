@@ -9,6 +9,7 @@ public class Button {
 	}
 	
 	public void press() {
-		currentState.press(this);
+		State newState = currentState.press();
+		currentState = newState;
 	}
 }

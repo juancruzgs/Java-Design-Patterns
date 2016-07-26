@@ -8,9 +8,9 @@ public class On implements State {
 	}
 	
 	@Override
-	public void press(Button button) {
+	public State press() {
 		System.out.println("On Pressed");
-		button.setState(Off.getInstance());
+		return Off.getInstance();
 	}
 	
 	public static On getInstance() {

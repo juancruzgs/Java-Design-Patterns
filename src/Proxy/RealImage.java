@@ -1,4 +1,4 @@
-package Image;
+package Proxy;
 
 public class RealImage implements Image {
 

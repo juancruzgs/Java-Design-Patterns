@@ -1,10 +1,12 @@
 package Observer;
 
 
-public class Gates extends Observer {
+public class Gates implements Observer {
 
-	public Gates(SensorSystem subject) {
-		super(subject);
+	ConcreteSubject subject;
+	
+	public Gates(ConcreteSubject subject) {
+		this.subject = subject;
 	}
 
 	@Override

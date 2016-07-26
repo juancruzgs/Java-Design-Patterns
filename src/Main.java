@@ -1,5 +1,8 @@
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import AbstractFactory.AbstractFactory;
 import AbstractFactory.Alfajor;
 import AbstractFactory.Balcarce;
@@ -33,8 +36,7 @@ import FactoryMethod.CreadorAuto;
 import FactoryMethod.CreadorCamion;
 import FactoryMethod.CreadorVehiculos;
 import FactoryMethod.Vehiculo;
-import Image.Image;
-import Image.ProxyImage;
+import Observer.ConcreteSubject;
 import Observer.Gates;
 import Observer.Lights;
 import Observer.Observer;
@@ -43,6 +45,8 @@ import Prototype.LCD;
 import Prototype.Plasma;
 import Prototype.PrototypeFactory;
 import Prototype.TV;
+import Proxy.Image;
+import Proxy.ProxyImage;
 import Singleton.Singleton;
 import Singleton.StaticClass;
 import State.Button;
@@ -50,6 +54,7 @@ import Strategy.Context;
 import Strategy.OperationAdd;
 import Strategy.OperationMultiply;
 import Visitor.DownVisitor;
+import Visitor.Element;
 import Visitor.That;
 import Visitor.Those;
 import Visitor.UpVisitor;
@@ -164,15 +169,17 @@ public class Main {
 		
 		//Observer
 		/*
-		SensorSystem sensorSystem = new SensorSystem();
+		ConcreteSubject sensorSystem = new ConcreteSubject();
 		Observer lights = new Lights(sensorSystem);
 		Observer gates = new Gates(sensorSystem);
 		
+		sensorSystem.attach(lights);
+		sensorSystem.attach(gates);
 		sensorSystem.setState(1);
 		
 		sensorSystem.detach(gates);
 		sensorSystem.setState(2);
-		*/
+		
 		
 		//Command
 		/*
@@ -220,16 +227,14 @@ public class Main {
 		*/
 		
 		//Visitor
-		Visitor upVisitor = new UpVisitor();
-		Visitor downVisitor = new DownVisitor();
+		List<Element> list = new ArrayList();
+		list.add(new Those());
+		list.add(new That());
 		
-		Those those = new Those();
-		those.accept(upVisitor);
-		those.accept(downVisitor);
-
-		That that = new That();
-		that.accept(upVisitor);
-		that.accept(downVisitor);
+		for (Element element : list) {
+			element.accept(new UpVisitor());
+			element.accept(new DownVisitor());
+		}
 	}
 
 }

@@ -1,9 +1,11 @@
 package Observer;
 
-public class Lights extends Observer {
+public class Lights implements Observer {
+	
+	ConcreteSubject subject;
 
-	public Lights(SensorSystem subject) {
-		super(subject);
+	public Lights(ConcreteSubject subject) {
+		this.subject = subject;
 	}
 
 	@Override

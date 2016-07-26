@@ -2,5 +2,5 @@ package State;
 
 public interface State {
 
-	void press(Button button);
+	State press();
 }

@@ -1,14 +1,6 @@
 package Observer;
 
-public abstract class Observer {
+public interface Observer {
 
-	protected SensorSystem subject;
-	
-	protected Observer(SensorSystem subject) {
-		super();
-		this.subject = subject;
-		subject.attach(this);
-	}
-
-	public abstract void update();
+	void update();
 }
